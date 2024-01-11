@@ -31,10 +31,6 @@ bot.on("chat_join_request", (user) => {
   }
 });
 
-bot.on("message", (message) => {
-  bot.sendMessage(message.from.id, "sss");
-});
-
 app.listen(port, () =>
   console.log(`Server running on ${port}, http://localhost:${port}`)
 );

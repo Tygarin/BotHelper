@@ -1,10 +1,9 @@
 require("dotenv").config();
-const http = require("http");
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Home Page Route'));
 
-const server = http.createServer((_, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello world!");
-});
+const port = 3000;
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHANNEL_ID = process.env.CHANNEL_ID;
@@ -32,4 +31,4 @@ bot.on("chat_join_request", (user) => {
   }
 });
 
-server.listen(3000, () => console.log("Server is running on port 3000"));
+app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));

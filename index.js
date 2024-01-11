@@ -1,7 +1,7 @@
 require("dotenv").config();
-const express = require('express');
+const express = require("express");
 const app = express();
-app.get('', (req, res) => res.send('Home Page Route'));
+app.get("", (req, res) => res.send("Home Page Route"));
 
 const port = 3000;
 
@@ -31,4 +31,10 @@ bot.on("chat_join_request", (user) => {
   }
 });
 
-app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
+bot.on("message", (message) => {
+  bot.sendMessage(message.from.id, "sss");
+});
+
+app.listen(port, () =>
+  console.log(`Server running on ${port}, http://localhost:${port}`)
+);

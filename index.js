@@ -11,7 +11,7 @@ const SECOND_ADMIN_ID = process.env.SECOND_ADMIN_ID;
 
 const TelegramBot = require("node-telegram-bot-api");
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
-console.log(BOT_TOKEN);
+console.log(port);
 bot.on("chat_join_request", (user) => {
   if (user.chat.id === Number(CHANNEL_ID)) {
     bot.approveChatJoinRequest(Number(CHANNEL_ID), user.from.id);
